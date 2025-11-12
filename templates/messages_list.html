@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Xabarlar{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2>Yangi xabarlar</h2>
+        {% for message in object_list %}
+        <div class="toast show mb-3" role="alert" aria-live="assertive" aria-atomic="true" style="width: 400px;">
+            <div class="toast-header">
+                <span class="text-bg-primary text-center rounded-circle me-2" style="width: 20px; height: 20px; line-height: 19px;">{{ message.first_name | slice:1 | upper }}</span>
+                <strong class="me-auto">{{ message.first_name }} {{ message.last_name }}</strong>
+                <small>{{ message.date }}</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <p>
+                {{ message.message }}
+                </p>
+                <hr>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="tel:{{ message.phone }}" class="link-underline link-underline-opacity-0">
+                        {{ message.phone }}
+                    </a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:{{ message.email }}" class="link-underline link-underline-opacity-0">
+                        {{ message.email }}
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

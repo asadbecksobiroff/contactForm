@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Xabar qoldirish{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2>Xabaringizni shu yerda qoldiring</h2>
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="id_first_name" class="form-label">Ism</label>
+                <input type="text" class="form-control" name="first_name" maxlength="100" required id="id_first_name">
+            </div>
+            <div class="mb-3">
+                <label for="id_last_name" class="form-label">Familiya</label>
+                <input type="text" class="form-control" name="last_name" maxlength="100" required id="id_last_name">
+            </div>
+            <div class="mb-3">
+                <label for="id_phone" class="form-label">Telefon raqam</label>
+                <input type="text" class="form-control" name="phone" maxlength="30" required id="id_phone">
+            </div>
+            <div class="mb-3">
+                <label for="id_email" class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" maxlength="254" required id="id_email">
+            </div>
+            <div class="mb-3">
+                <label for="id_message" class="form-label">Xabar</label>
+                <textarea class="form-control" name="message" rows="7" required id="id_message"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary mb-3">Yuborish</button>
+        </form>
+    </div>
+{% endblock %}
